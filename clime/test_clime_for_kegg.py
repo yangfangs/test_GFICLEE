@@ -5,7 +5,7 @@ from clime.clime_predict import ClimePredict
 foo = ClimePredict()
 # 2-fold cross validation
 foo.leave_half('/home/yangfang/GFICLEE/test_kegg/input/', '/home/yangfang/GFICLEE/test_kegg/output/',
-               '/home/yangfang/GFICLEE/test_kegg/human.KEGG_temp.txt')
+               '/home/yangfang/GFICLEE/test_kegg/human.KEGG.txt')
 # generate the clime parameters for test
 foo.get_prm('/home/yangfang/GFICLEE/test_kegg/human_CI_half.prms',
             '//home/yangfang/GFICLEE/test_kegg/prms_all/',
