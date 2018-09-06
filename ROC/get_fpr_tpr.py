@@ -22,8 +22,14 @@ class PlotRoc(object):
         self.predict_path = predict_path
 
     def get_input_clime_name(self, genes):
+
         input_pathway = pd.read_csv(genes, sep='\t')
-        p_name = list(input_pathway.Symbol)
+        col_names = input_pathway.columns
+        if 'Symbol' in col_names:
+            p_name = list(input_pathway.Symbol)
+        elif 'Entrez' in col_names:
+            p_name = list(input_pathway.Entrez)
+
         return p_name
 
     def tans_predict(self, pre_path, p_name, n_name):
@@ -100,7 +106,12 @@ class PlotRoc(object):
     # get leave genes names
     def get_leave_genes(self, path):
         df = pd.read_csv(path, sep='\t')
-        leave_genes = list(df['Symbol'])
+        col_names = df.columns
+        if 'Symbol' in col_names:
+            leave_genes = list(df.Symbol)
+        elif 'Entrez' in col_names:
+            leave_genes = list(df.Entrez)
+
         return leave_genes
 
     def run_roc(self, pred, i):
@@ -120,8 +131,11 @@ class PlotRoc(object):
         # append positive genes
         input_clime.extend(p_names)
         input_genes = pd.read_csv(self.input_all_path, sep='\t')
-
-        all_pathway_genes = list(input_genes['Symbol'])
+        col_names = input_genes.columns
+        if 'Symbol' in col_names:
+            all_pathway_genes = list(input_genes.Symbol)
+        elif 'Entrez' in col_names:
+            all_pathway_genes = list(input_genes.Entrez)
         all_pathway_genes = list(set(all_pathway_genes))
 
         n_names = [var for var in all_pathway_genes if var not in input_clime]
