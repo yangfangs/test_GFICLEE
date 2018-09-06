@@ -20,27 +20,27 @@ def trans_gficlee(input_path, out_path):
         df = df.sort_values('score', ascending=False)
         df.to_csv(w_path_name,sep='\t',index=False)
 
-trans_gficlee(input_path='/home/yangfang/GFICLEE/test_kegg_corum/result/',
-            out_path='/home/yangfang/GFICLEE/test_kegg_corum/result_trans/',)
+trans_gficlee(input_path='/home/yangfang/GFICLEE/test_corum_gficlee/result/',
+            out_path='/home/yangfang/GFICLEE/test_corum_gficlee/result_trans/',)
 
 #Second get fpr and tpr
 
 
 
 
-foo = PlotRoc('/home/yangfang/GFICLEE/test_kegg_corum/input/',
-              '/home/yangfang/GFICLEE/test_kegg_corum/output/',
-              '/home/yangfang/GFICLEE/test_kegg_corum/human.corum.txt',
-              '/home/yangfang/GFICLEE/test_kegg_corum/result_trans/')
+foo = PlotRoc('/home/yangfang/GFICLEE/test_corum_gficlee/input/',
+              '/home/yangfang/GFICLEE/test_corum_gficlee/output/',
+              '/home/yangfang/GFICLEE/test_corum_gficlee/human.corum.txt',
+              '/home/yangfang/GFICLEE/test_corum_gficlee/result_trans/')
 # threshold
 
-thr = list(reversed([i/1  for i in range(0, 30)]))
+thr = list(reversed([i/1  for i in range(0, 26)]))
 thr2 = [-x / 1 for x in list(range(0, 30,1))]
 thr.extend(thr2)
 
 all_tpr_fpr_precision, all_r = foo.start_roc(6, thr)
 
 foo.write_tpr_fpr(all_tpr_fpr_precision,
-                  '/home/yangfang/GFICLEE/test_kegg_corum/kegg_tpr_fpr_precision_corum.txt')
+                  '/home/yangfang/GFICLEE/test_corum_gficlee/kegg_tpr_fpr_precision_corum.txt')
 foo.write_all(all_r,
-              '/home/yangfang/GFICLEE/test_kegg_corum/kegg_tp_fp_tn_fn_corum.txt')
+              '/home/yangfang/GFICLEE/test_corum_gficlee/kegg_tp_fp_tn_fn_corum.txt')
