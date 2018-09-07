@@ -34,7 +34,7 @@ foo = PlotRoc('/home/yangfang/GFICLEE/test_corum_gficlee/input/',
               '/home/yangfang/GFICLEE/test_corum_gficlee/result_trans/')
 # threshold
 
-thr = list(reversed([i/1  for i in range(0, 26)]))
+thr = list(reversed([i/1  for i in range(0, 30)]))
 thr2 = [-x / 1 for x in list(range(0, 30,1))]
 thr.extend(thr2)
 
