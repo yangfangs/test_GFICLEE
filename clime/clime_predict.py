@@ -29,7 +29,7 @@ class ClimePredict(object):
                 if df.shape[0] <= 2:
                     continue
                 sample_num = round(df.shape[0] / 2)
-                df_w = df.sample(sample_num,random_state=123)
+                df_w = df.sample(sample_num,random_state=j)
                 # leave out genes
                 df_leave_out = df.drop(df_w.axes[0])
 

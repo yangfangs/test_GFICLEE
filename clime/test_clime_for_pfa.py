@@ -5,7 +5,7 @@ from clime.clime_predict import ClimePredict
 foo = ClimePredict()
 # 2-fold cross validation
 foo.leave_half('/home/yangfang/GFICLEE/test_pfa/input/', '/home/yangfang/GFICLEE/test_pfa/output/',
-               '/home/yangfang/GFICLEE/test_pfa/pfa.genome.txt')
+               '/home/yangfang/GFICLEE/test_pfa/pfa.genome2.txt')
 # generate the clime parameters for test
 foo.get_prm('/home/yangfang/GFICLEE/test_pfa/template.prms',
             '//home/yangfang/GFICLEE/test_pfa/prms_all/',

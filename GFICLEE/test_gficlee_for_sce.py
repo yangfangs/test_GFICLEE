@@ -8,7 +8,7 @@ foo = GficleePredict(profile_path='/home/yangfang/GFICLEE/test_sce_gficlee/sce.m
 # 2-fold cross validation
 foo.leave_half('/home/yangfang/GFICLEE/test_sce_gficlee/input/',
                '/home/yangfang/GFICLEE/test_sce_gficlee/output/',
-               '/home/yangfang/GFICLEE/test_sce_gficlee/sce.genome.txt')
+               '/home/yangfang/GFICLEE/test_sce_gficlee/sce.genome2.txt')
 
 
 start =time.time()
