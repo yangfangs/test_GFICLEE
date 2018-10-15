@@ -21,8 +21,8 @@ def trans_clime(input_path, out_path,name):
         re = re.sort_values('score', ascending=False)
         re.to_csv(w_path_name, sep='\t', index=False)
 
-trans_clime('/home/yangfang/GFICLEE/test_go/result_all/',
-            '/home/yangfang/GFICLEE/test_go/result_all_trans/',
+trans_clime('/home/yangfang/GFICLEE/test_go_clime/result_all/',
+            '/home/yangfang/GFICLEE/test_go_clime/result_all_trans/',
             'Gene Entrez')
 
 #Second get fpr and tpr
@@ -30,12 +30,12 @@ trans_clime('/home/yangfang/GFICLEE/test_go/result_all/',
 
 
 
-foo = PlotRoc('/home/yangfang/GFICLEE/test_go/input/',
-              '/home/yangfang/GFICLEE/test_go/output/',
-              '/home/yangfang/GFICLEE/test_go/human.GO.txt',
-              '/home/yangfang/GFICLEE/test_go/result_all_trans/')
+foo = PlotRoc('/home/yangfang/GFICLEE/test_go_clime/input/',
+              '/home/yangfang/GFICLEE/test_go_clime/output/',
+              '/home/yangfang/GFICLEE/test_go_clime/human.GO.txt',
+              '/home/yangfang/GFICLEE/test_go_clime/result_all_trans/')
 # threshold
-thr = list(reversed([i / 2.0 for i in range(150)]))
+thr = list(reversed([i / 2.0 for i in range(120)]))
 
 
 # thr = list(reversed([i / 1 for i in range(0, 20)]))
@@ -50,6 +50,6 @@ thr = list(reversed([i / 2.0 for i in range(150)]))
 all_tpr_fpr_precision, all_r = foo.start_roc(6, thr)
 
 foo.write_tpr_fpr(all_tpr_fpr_precision,
-                  '/home/yangfang/GFICLEE/test_go/go_tpr_fpr_precision_clime.txt')
+                  '/home/yangfang/GFICLEE/test_go_clime/go_tpr_fpr_precision_clime.txt')
 foo.write_all(all_r,
-              '/home/yangfang/GFICLEE/test_go/go_tp_fp_tn_fn_clime.txt')
+              '/home/yangfang/GFICLEE/test_go_clime/go_tp_fp_tn_fn_clime.txt')
