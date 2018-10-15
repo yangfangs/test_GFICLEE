@@ -60,9 +60,9 @@ class GficleePredict(object):
             t_ = self.tree_path
             p_ = self.profile_path
             o_ = os.path.join(self.result_path,line)
-            if not os.path.isdir(o_):
-                os.makedirs(o_)
-            cmd = gficlee_path + " -i " + i_ + " -p " + p_ + " -t " + t_ + " -o " + o_
+            # if not os.path.isdir(o_):
+            #     os.makedirs(o_)
+            cmd = "java -jar " + gficlee_path + " -i " + i_ + " -p " + p_ + " -t " + t_ + " -o " + o_
             all_cmd.append(cmd)
         # Do multiple processing
         cores = core

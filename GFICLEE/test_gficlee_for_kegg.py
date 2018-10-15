@@ -13,7 +13,7 @@ foo.leave_half('/home/yangfang/GFICLEE/test_kegg_gficlee/input/',
 
 start =time.time()
 # run test with 6 cores
-foo.run_gficlee(6, gficlee_path='GFICLEE')
+foo.run_gficlee(6, gficlee_path='/home/yangfang/GFICLEE/GFICLEE1.0.jar')
 end = time.time()
 print("===============================")
 print('Running time: {} Seconds'.format(end-start))
