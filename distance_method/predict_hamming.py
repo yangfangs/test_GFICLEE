@@ -5,7 +5,7 @@ from distance_method.distance_predict import GetPredict
 
 # get predict for kegg database
 foo = GetPredict(profile_path='/home/yangfang/GFICLEE/distance_method/kegg/hsa.matrix138.e3.q00.p20.txt',
-                 out_path='/home/yangfang/GFICLEE/distance_method/kegg/result',
+                 out_path='/home/yangfang/GFICLEE/distance_method/kegg/result_hamming',
                  method='hamming')
 foo.leave_half(input_file_path='/home/yangfang/GFICLEE/distance_method/kegg/input/',
                leave_file_path='/home/yangfang/GFICLEE/distance_method/kegg/output/',
@@ -15,7 +15,7 @@ foo.run(6)
 
 # get predict for Go database
 foo = GetPredict(profile_path='/home/yangfang/GFICLEE/distance_method/go/hsa.matrix138.e3.q00.p20.txt',
-                 out_path='/home/yangfang/GFICLEE/distance_method/go/result',
+                 out_path='/home/yangfang/GFICLEE/distance_method/go/result_hamming',
                  method='hamming')
 foo.leave_half(input_file_path='/home/yangfang/GFICLEE/distance_method/go/input/',
                leave_file_path='/home/yangfang/GFICLEE/distance_method/go/output/',

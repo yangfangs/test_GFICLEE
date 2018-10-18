@@ -34,16 +34,3 @@ foo.leave_half(input_file_path='/home/yangfang/GFICLEE/distance_method/corum/inp
                leave_file_path='/home/yangfang/GFICLEE/distance_method/corum/output/',
                pathway='/home/yangfang/GFICLEE/distance_method/corum/human.corum.txt')
 foo.run(6)
-
-
-
-a = np.array([[0, 0, 0],
-              [0, 0, 1],
-              [0, 1, 0],
-              [0, 1, 1],
-              [1, 0, 0],
-              [1, 0, 1],
-              [1, 1, 0],
-              [1, 1, 1]])
-b = np.array([[ 0,  1,  1]])
-distance.cdist(a, b, 'euclidean')

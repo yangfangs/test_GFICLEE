@@ -5,6 +5,7 @@ import pandas as pd
 import os
 import multiprocessing
 import numpy as np
+from sklearn.metrics import normalized_mutual_info_score, adjusted_mutual_info_score
 
 
 class GetPredict(object):
@@ -25,6 +26,9 @@ class GetPredict(object):
         self.profile_names = None
         self.profile_data = None
         self.leave_path = None
+        self.is_entrez = False
+
+
         if not os.path.isdir(self.out_path):
             os.makedirs(self.out_path)
 
@@ -71,7 +75,11 @@ class GetPredict(object):
         with open(matrix_path) as f:
             for i in islice(f, 1, None):
                 node = i.strip().split('\t')
-                self.profile[node[1]] = list(map(int, node[2:]))
+                if self.is_entrez:
+                    self.profile[node[0]] = list(map(int, node[2:]))
+                else:
+                    self.profile[node[1]] = list(map(int, node[2:]))
+
 
     def read_input(self, label_path: "The path to input gene") -> dict:
 
@@ -79,10 +87,13 @@ class GetPredict(object):
         Read label
         """
 
+        global node
         with open(label_path) as f:
             for i in islice(f, 1, None):
                 node = i.strip().split('\t')
                 self.input_genes[node[0]] = node[1]
+        if node[0].isnumeric():
+            self.is_entrez = True
 
     def prepare_data(self):
         self.read_matrix(self.profile_path)
@@ -121,6 +132,16 @@ class GetPredict(object):
         pre = pd.DataFrame(dic)
         return pre
 
+    def pre_mutual_info(self):
+        all_res = []
+        for i in self.profile_data:
+            all_pre = []
+            for j in self.input_genes_data:
+                all_pre.append(adjusted_mutual_info_score(j,i))
+            all_res.append(max(all_pre))
+        dic = {'name': list(self.profile_names), 'score': list(all_res)}
+        pre = pd.DataFrame(dic)
+        return pre
 
     def run_pre(self,input_file):
         print(input_file)
@@ -130,8 +151,15 @@ class GetPredict(object):
         output_file_name = os.path.join(output_path, input_file)
         self.read_input(input_file_name)
         self.prepare_data()
-        re = self.pre_predict()
-        re = re.sort_values('score', ascending=True)
+        # re = self.pre_predict()
+        if self.method == "mutual_info":
+            re = self.pre_mutual_info()
+            re = re.sort_values('score', ascending=False)
+
+        else:
+            re = self.pre_predict()
+            re = re.sort_values('score', ascending=True)
+
         re.to_csv(output_file_name, sep='\t', index=False)
 
 
