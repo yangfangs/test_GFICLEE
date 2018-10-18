@@ -5,8 +5,8 @@ from distance_method.distance_predict import GetPredict
 
 # get predict for kegg database
 foo = GetPredict(profile_path='/home/yangfang/GFICLEE/distance_method/kegg/hsa.matrix138.e3.q00.p20.txt',
-                 out_path='/home/yangfang/GFICLEE/distance_method/kegg/result_euclidean',
-                 method='euclidean')
+                 out_path='/home/yangfang/GFICLEE/distance_method/kegg/result_seuclidean',
+                 method='seuclidean')
 foo.leave_half(input_file_path='/home/yangfang/GFICLEE/distance_method/kegg/input/',
                leave_file_path='/home/yangfang/GFICLEE/distance_method/kegg/output/',
                pathway='/home/yangfang/GFICLEE/distance_method/kegg/human.KEGG.txt')

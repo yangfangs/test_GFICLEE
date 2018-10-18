@@ -3,7 +3,7 @@ import numpy as np
 from ROC.get_fpr_tpr import PlotRoc
 
 
-class PlotRocHamming(PlotRoc):
+class PlotRocDistance(PlotRoc):
     def __init__(self, input_gene_path, leave_gene_path, input_all_path, predict_path):
         super().__init__(input_gene_path, leave_gene_path, input_all_path, predict_path)
 
