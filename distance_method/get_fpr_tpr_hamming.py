@@ -35,3 +35,21 @@ foo.write_tpr_fpr(all_tpr_fpr_precision,
                   '/home/yangfang/GFICLEE/distance_method/go/go_tpr_fpr_precision_hamming.txt')
 foo.write_all(all_r,
               '/home/yangfang/GFICLEE/distance_method/go/go_tp_fp_tn_fn_hamming.txt')
+
+
+
+# for corum
+foo = PlotRocDistance('/home/yangfang/GFICLEE/distance_method/corum/input/',
+              '/home/yangfang/GFICLEE/distance_method/corum/output/',
+              '/home/yangfang/GFICLEE/distance_method/corum/human.corum.txt',
+              '/home/yangfang/GFICLEE/distance_method/corum/result_hamming/')
+# threshold
+
+thr = [i / 60 for i in range(40)]
+
+all_tpr_fpr_precision, all_r = foo.start_roc(6, thr)
+
+foo.write_tpr_fpr(all_tpr_fpr_precision,
+                  '/home/yangfang/GFICLEE/distance_method/corum/corum_tpr_fpr_precision_hamming.txt')
+foo.write_all(all_r,
+              '/home/yangfang/GFICLEE/distance_method/corum/corum_tp_fp_tn_fn_hamming.txt')

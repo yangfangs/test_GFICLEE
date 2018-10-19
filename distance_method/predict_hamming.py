@@ -28,7 +28,7 @@ foo.run(6)
 
 
 foo = GetPredict(profile_path='/home/yangfang/GFICLEE/distance_method/corum/hsa.matrix138.e3.q00.p20.txt',
-                 out_path='/home/yangfang/GFICLEE/distance_method/corum/result',
+                 out_path='/home/yangfang/GFICLEE/distance_method/corum/result_hamming',
                  method='hamming')
 foo.leave_half(input_file_path='/home/yangfang/GFICLEE/distance_method/corum/input/',
                leave_file_path='/home/yangfang/GFICLEE/distance_method/corum/output/',
