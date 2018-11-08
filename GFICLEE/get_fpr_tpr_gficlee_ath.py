@@ -30,8 +30,8 @@ from ROC.get_fpr_tpr import PlotRoc
 
 foo = PlotRoc('/home/yangfang/GFICLEE/test_ath_gficlee/input/',
               '/home/yangfang/GFICLEE/test_ath_gficlee/output/',
-              '/home/yangfang/GFICLEE/test_ath_gficlee/ath.KEGG.txt',
-              '/home/yangfang/GFICLEE/test_ath_gficlee/result/')
+              '/home/yangfang/GFICLEE/test_ath_gficlee/ath00001_5_filter.txt',
+              '/home/yangfang/GFICLEE/test_ath_gficlee/result_5/')
 # threshold
 
 thr = list(reversed([i/1  for i in range(0, 35)]))
@@ -41,6 +41,6 @@ thr.extend(thr2)
 all_tpr_fpr_precision, all_r = foo.start_roc(6, thr)
 
 foo.write_tpr_fpr(all_tpr_fpr_precision,
-                  '/home/yangfang/GFICLEE/test_ath_gficlee/ath_tpr_fpr_precision_gficlee.txt')
+                  '/home/yangfang/GFICLEE/test_ath_gficlee/ath_tpr_fpr_precision_gficlee5.txt')
 foo.write_all(all_r,
-              '/home/yangfang/GFICLEE/test_ath_gficlee/ath_tp_fp_tn_fn_gficlee.txt')
+              '/home/yangfang/GFICLEE/test_ath_gficlee/ath_tp_fp_tn_fn_gficlee5.txt')

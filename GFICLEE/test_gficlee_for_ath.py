@@ -1,5 +1,7 @@
 import time
 
+import pandas as pd
+
 from GFICLEE.gficlee_predict import GficleePredict
 
 foo = GficleePredict(profile_path='/home/yangfang/GFICLEE/test_ath_gficlee/ath_138_matrix.txt',
@@ -8,7 +10,7 @@ foo = GficleePredict(profile_path='/home/yangfang/GFICLEE/test_ath_gficlee/ath_1
 # 2-fold cross validation
 foo.leave_half('/home/yangfang/GFICLEE/test_ath_gficlee/input/',
                '/home/yangfang/GFICLEE/test_ath_gficlee/output/',
-               '/home/yangfang/GFICLEE/test_ath_gficlee/ath.KEGG.txt')
+               '/home/yangfang/GFICLEE/test_ath_gficlee/ath00001_5_filter.txt')
 
 
 start =time.time()
@@ -17,3 +19,6 @@ foo.run_gficlee(6, gficlee_path='/home/yangfang/GFICLEE/GFICLEE1.0.jar')
 end = time.time()
 print("===============================")
 print('Running time: {} Seconds'.format(end-start))
+
+
+

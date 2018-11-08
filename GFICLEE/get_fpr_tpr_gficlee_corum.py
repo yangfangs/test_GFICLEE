@@ -35,7 +35,7 @@ foo = PlotRoc('/home/yangfang/GFICLEE/test_corum_gficlee/input/',
 # threshold
 
 thr = list(reversed([i/1  for i in range(0, 35)]))
-thr2 = [-x / 1 for x in list(range(0, 30,1))]
+thr2 = [-x / 1 for x in list(range(0, 20,1))]
 thr.extend(thr2)
 
 all_tpr_fpr_precision, all_r = foo.start_roc(6, thr)

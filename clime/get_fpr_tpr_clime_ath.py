@@ -21,8 +21,8 @@ def trans_clime(input_path, out_path,name):
         re = re.sort_values('score', ascending=False)
         re.to_csv(w_path_name, sep='\t', index=False)
 
-trans_clime('/home/yangfang/GFICLEE/test_ath_clime/result_all/',
-            '/home/yangfang/GFICLEE/test_ath_clime/result_all_trans/',
+trans_clime('/home/yangfang/GFICLEE/test_ath_clime/result_all5/',
+            '/home/yangfang/GFICLEE/test_ath_clime/result_all_trans5/',
             'Gene Symbol')
 
 #Second get fpr and tpr
@@ -32,8 +32,8 @@ trans_clime('/home/yangfang/GFICLEE/test_ath_clime/result_all/',
 
 foo = PlotRoc('/home/yangfang/GFICLEE/test_ath_clime/input/',
               '/home/yangfang/GFICLEE/test_ath_clime/output/',
-              '/home/yangfang/GFICLEE/test_ath_clime/ath.KEGG.txt',
-              '/home/yangfang/GFICLEE/test_ath_clime/result_all_trans/')
+              '/home/yangfang/GFICLEE/test_ath_clime/ath00001_5_filter.txt',
+              '/home/yangfang/GFICLEE/test_ath_clime/result_all_trans5/')
 # threshold
 thr = list(reversed([i / 2.0 for i in range(120)]))
 
@@ -50,6 +50,6 @@ thr = list(reversed([i / 2.0 for i in range(120)]))
 all_tpr_fpr_precision, all_r = foo.start_roc(6, thr)
 
 foo.write_tpr_fpr(all_tpr_fpr_precision,
-                  '/home/yangfang/GFICLEE/test_ath_clime/ath_tpr_fpr_precision_clime.txt')
+                  '/home/yangfang/GFICLEE/test_ath_clime/ath_tpr_fpr_precision_clime5.txt')
 foo.write_all(all_r,
-              '/home/yangfang/GFICLEE/test_ath_clime/ath_tp_fp_tn_fn_clime.txt')
+              '/home/yangfang/GFICLEE/test_ath_clime/ath_tp_fp_tn_fn_clime5.txt')

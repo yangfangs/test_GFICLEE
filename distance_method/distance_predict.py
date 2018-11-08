@@ -1,3 +1,5 @@
+from collections import Counter
+
 import numpy as np
 from itertools import islice
 import scipy.spatial.distance as dist
@@ -5,7 +7,7 @@ import pandas as pd
 import os
 import multiprocessing
 import numpy as np
-from sklearn.metrics import normalized_mutual_info_score, adjusted_mutual_info_score
+from sklearn.metrics import normalized_mutual_info_score, adjusted_mutual_info_score, mutual_info_score
 
 
 class GetPredict(object):
@@ -131,15 +133,25 @@ class GetPredict(object):
         dic = {'name': list(self.profile_names), 'score': list(result)}
         pre = pd.DataFrame(dic)
         return pre
+    def entropy(self,labels):
+        prob_dict = Counter(labels)
+        s = sum(prob_dict.values())
+        probs = np.array([i/s for i in prob_dict.values()])
+        return -probs.dot(np.log(probs))
+    def mi_score(self,a,b):
+        a_b = ["{0}{1}".format(i,j) for i,j in zip(a,b)]
+        return self.entropy(a) + self.entropy(b) - self.entropy(a_b)
 
     def pre_mutual_info(self):
         all_res = []
-        for i in self.profile_data:
+        for i in self.input_genes_data:
             all_pre = []
-            for j in self.input_genes_data:
-                all_pre.append(adjusted_mutual_info_score(j,i))
-            all_res.append(max(all_pre))
-        dic = {'name': list(self.profile_names), 'score': list(all_res)}
+            for j in self.profile_data:
+                all_pre.append(self.mi_score(i, j))
+            all_res.append(all_pre)
+        all_res_np = np.array(all_res)
+        all_res_max = all_res_np.max(axis=0)
+        dic = {'name': list(self.profile_names), 'score': list(all_res_max)}
         pre = pd.DataFrame(dic)
         return pre
 

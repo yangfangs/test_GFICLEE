@@ -2,12 +2,12 @@
 import re
 
 
-write_file = open("/home/yangfang/GFICLEE/test_ath_gficlee/ath00001_trans.txt",'w')
+write_file = open("/home/yangfang/GFICLEE/test_ath_gficlee/ath00001_5.txt",'w')
 
 
-pathway =["Metabolism","Cellular Processes","Genetic Information Processing"]
+pathway =["Metabolism","Cellular Processes","Genetic Information Processing","Environmental Information Processing","Organismal Systems"]
 
-
+# pathway =["Metabolism","Cellular Processes"]
 with open('/home/yangfang/GFICLEE/test_ath_gficlee/ath00001.keg') as f:
     for line in f:
         if line.startswith("A"):
