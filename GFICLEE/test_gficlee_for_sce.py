@@ -8,12 +8,12 @@ foo = GficleePredict(profile_path='/home/yangfang/GFICLEE/test_sce_gficlee/sce.m
 # 2-fold cross validation
 foo.leave_half('/home/yangfang/GFICLEE/test_sce_gficlee/input/',
                '/home/yangfang/GFICLEE/test_sce_gficlee/output/',
-               '/home/yangfang/GFICLEE/test_sce_gficlee/sce.genome2.txt')
+               '/home/yangfang/GFICLEE/test_sce_gficlee/sce.genome.txt')
 
 
 start =time.time()
 # run test with 6 cores
-foo.run_gficlee(6, gficlee_path='GFICLEE')
+foo.run_gficlee(6, gficlee_path='/home/yangfang/GFICLEE/GFICLEE1.0.jar')
 end = time.time()
 print("===============================")
 print('Running time: {} Seconds'.format(end-start))
