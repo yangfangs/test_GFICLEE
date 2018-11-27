@@ -13,6 +13,8 @@ class GficleePredict(object):
         self.profile_path = profile_path
         self.tree_path =tree_path
         self.result_path = result_path
+        if not os.path.isdir(result_path):
+            os.makedirs(result_path)
 
     def leave_half(self, input_file_path, leave_file_path, pathway):
 
