@@ -24,7 +24,7 @@ class ClimePredict(object):
 
         for i in range(len(pathway)):
             df = input_genes[input_genes[col_names].isin([pathway[i]])]
-            for j in range(2):
+            for j in range(5):
                 # get samples
                 if df.shape[0] <= 2:
                     continue

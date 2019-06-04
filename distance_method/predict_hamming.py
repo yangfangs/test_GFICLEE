@@ -34,3 +34,29 @@ foo.leave_half(input_file_path='/home/yangfang/GFICLEE/distance_method/corum/inp
                leave_file_path='/home/yangfang/GFICLEE/distance_method/corum/output/',
                pathway='/home/yangfang/GFICLEE/distance_method/corum/human.corum.txt')
 foo.run(6)
+
+
+
+# get predict for ath kegg
+
+
+foo = GetPredict(profile_path='/home/yangfang/GFICLEE/distance_method/ath/ath_138_matrix.txt',
+                 out_path='/home/yangfang/GFICLEE/distance_method/ath/result_hamming',
+                 method='hamming')
+foo.leave_half(input_file_path='/home/yangfang/GFICLEE/distance_method/ath/input/',
+               leave_file_path='/home/yangfang/GFICLEE/distance_method/ath/output/',
+               pathway='/home/yangfang/GFICLEE/distance_method/ath/ath.KEGG.txt')
+foo.run(6)
+
+
+
+# get predict for tbr kegg
+
+
+foo = GetPredict(profile_path='/home/yangfang/GFICLEE/distance_method/tbr/tbr.matrix138.e3.q00.p20.txt',
+                 out_path='/home/yangfang/GFICLEE/distance_method/tbr/result_hamming',
+                 method='hamming')
+foo.leave_half(input_file_path='/home/yangfang/GFICLEE/distance_method/tbr/input/',
+               leave_file_path='/home/yangfang/GFICLEE/distance_method/tbr/output/',
+               pathway='/home/yangfang/GFICLEE/distance_method/tbr/tbr.genome.txt')
+foo.run(6)

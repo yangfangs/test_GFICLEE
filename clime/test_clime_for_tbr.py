@@ -8,7 +8,7 @@ foo.leave_half('/home/yangfang/GFICLEE/test_tbr_clime/input/', '/home/yangfang/G
                '/home/yangfang/GFICLEE/test_tbr_clime/tbr.genome.txt')
 # generate the clime parameters for test
 foo.get_prm('/home/yangfang/GFICLEE/test_tbr_clime/template.prms',
-            '//home/yangfang/GFICLEE/test_tbr_clime/prms_all/',
+            '/home/yangfang/GFICLEE/test_tbr_clime/prms_all/',
             '/home/yangfang/GFICLEE/test_tbr_clime/result_all/')
 
 start =time.time()
