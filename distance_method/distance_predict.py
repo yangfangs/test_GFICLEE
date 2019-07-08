@@ -1,13 +1,10 @@
 from collections import Counter
-
-import numpy as np
 from itertools import islice
 import scipy.spatial.distance as dist
 import pandas as pd
 import os
 import multiprocessing
 import numpy as np
-from sklearn.metrics import normalized_mutual_info_score, adjusted_mutual_info_score, mutual_info_score
 
 
 class GetPredict(object):
@@ -47,7 +44,7 @@ class GetPredict(object):
 
         for i in range(len(pathway)):
             df = input_genes[input_genes[col_names].isin([pathway[i]])]
-            for j in range(2):
+            for j in range(5):
                 # get samples
                 if df.shape[0] <= 2:
                     continue

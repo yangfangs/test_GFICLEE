@@ -8,8 +8,8 @@ foo = PlotRocDistance('/home/yangfang/GFICLEE/distance_method/kegg/input/',
               '/home/yangfang/GFICLEE/distance_method/kegg/result_hamming/')
 # threshold
 
-# thr = [i / 60 for i in range(40)]
-thr = [i / 1000 for i in range(10)]
+thr = [i / 60 for i in range(40)]
+# thr = [i / 1000 for i in range(10)]
 
 all_tpr_fpr_precision, all_r = foo.start_roc(6, thr)
 
