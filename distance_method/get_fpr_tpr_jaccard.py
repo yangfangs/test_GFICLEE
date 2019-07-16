@@ -37,11 +37,11 @@ foo.write_all(all_r,
 
 
 
-# get fpr tpr for GO database
-foo = PlotRocDistance('/home/yangfang/GFICLEE/distance_method/tbr/input/',
-              '/home/yangfang/GFICLEE/distance_method/tbr/output/',
-              '/home/yangfang/GFICLEE/distance_method/tbr/human.tbr.txt',
-              '/home/yangfang/GFICLEE/distance_method/tbr/result_jaccard/')
+# get fpr tpr for corum database
+foo = PlotRocDistance('/home/yangfang/GFICLEE/distance_method/corum/input/',
+              '/home/yangfang/GFICLEE/distance_method/corum/output/',
+              '/home/yangfang/GFICLEE/distance_method/corum/human.corum.txt',
+              '/home/yangfang/GFICLEE/distance_method/corum/result_jaccard/')
 # threshold
 
 thr = [i / 60 for i in range(40)]
@@ -49,9 +49,9 @@ thr = [i / 60 for i in range(40)]
 all_tpr_fpr_precision, all_r = foo.start_roc(6, thr)
 
 foo.write_tpr_fpr(all_tpr_fpr_precision,
-                  '/home/yangfang/GFICLEE/distance_method/tbr/tbr_tpr_fpr_precision_jaccard.txt')
+                  '/home/yangfang/GFICLEE/distance_method/corum/corum_tpr_fpr_precision_jaccard.txt')
 foo.write_all(all_r,
-              '/home/yangfang/GFICLEE/distance_method/tbr/tbr_tp_fp_tn_fn_jaccard.txt')
+              '/home/yangfang/GFICLEE/distance_method/corum/corum_tp_fp_tn_fn_jaccard.txt')
 
 
 # get fpr tpr for ath kegg
