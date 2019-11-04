@@ -29,12 +29,12 @@ class GficleePredict(object):
 
         for i in range(len(pathway)):
             df = input_genes[input_genes[col_names].isin([pathway[i]])]
-            for j in range(2):
+            for j in range(5):
                 # get samples
                 if df.shape[0] <= 2:
                     continue
                 sample_num = round(df.shape[0] / 2)
-                df_w = df.sample(sample_num,random_state=j)
+                df_w = df.sample(sample_num,random_state=j+1)
                 # leave out genes
                 df_leave_out = df.drop(df_w.axes[0])
 

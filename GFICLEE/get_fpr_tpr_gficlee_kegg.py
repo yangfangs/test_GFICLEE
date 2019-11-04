@@ -26,21 +26,22 @@ from ROC.get_fpr_tpr import PlotRoc
 #Second get fpr and tpr
 
 
-
-
 foo = PlotRoc('/home/yangfang/GFICLEE/test_kegg_gficlee/input/',
               '/home/yangfang/GFICLEE/test_kegg_gficlee/output/',
               '/home/yangfang/GFICLEE/test_kegg_gficlee/human.KEGG.txt',
               '/home/yangfang/GFICLEE/test_kegg_gficlee/result/')
 # threshold
 
-thr = list(reversed([i/1  for i in range(0, 35)]))
-thr2 = [-x / 1 for x in list(range(0, 30,1))]
+thr = list(reversed([i/2  for i in range(0, 35)]))
+thr2 = [-x / 2 for x in list(range(0, 30,1))]
 thr.extend(thr2)
 
-all_tpr_fpr_precision, all_r = foo.start_roc(6, thr)
+all_tpr_fpr_precision, all_r = foo.start_roc(8, thr)
 
 foo.write_tpr_fpr(all_tpr_fpr_precision,
                   '/home/yangfang/GFICLEE/test_kegg_gficlee/kegg_tpr_fpr_precision_gficlee.txt')
 foo.write_all(all_r,
               '/home/yangfang/GFICLEE/test_kegg_gficlee/kegg_tp_fp_tn_fn_gficlee.txt')
+
+
+

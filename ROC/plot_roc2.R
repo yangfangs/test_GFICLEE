@@ -60,7 +60,7 @@ plot_se_sp <- function(allData,title){
   cols <- gg_color_hue(length(unique(allData$group)))
   cols <- c(cols,"#000000")
   g <- ggplot(all_data,aes(x = 1-fpr, y = tpr ,group = group)) +
-    geom_path(aes(color=group),size=0.5)+
+    geom_path(aes(color=group),size=1.0)+
     scale_colour_manual(values=cols)+
     labs(x = "Specificity", y = "Sensitivity", title =title)
   
@@ -100,17 +100,17 @@ fit_data <- function(input_data,data_name){
 
 
 #KEGG
-data1 <- read_data('/home/yangfang/GFICLEE/5_fold_validation/test_kegg_clime/kegg_tpr_fpr_precision_clime.txt',
+data1 <- read_data('/home/yangfang/GFICLEE/test_kegg_clime_5_fold_backup/kegg_tpr_fpr_precision_clime.txt',
                    'CLIME')
-data2 <- read_data('/home/yangfang/GFICLEE/5_fold_validation/test_kegg_gficlee/kegg_tpr_fpr_precision_gficlee.txt',
+data2 <- read_data('/home/yangfang/GFICLEE/test_kegg_gficlee_5_fold_backup/kegg_tpr_fpr_precision_gficlee.txt',
                    'GFICLEE')
 
-data3 <- read_data('/home/yangfang/GFICLEE/distance_method/kegg/kegg_tpr_fpr_precision_hamming.txt',
+data3 <- read_data('/home/yangfang/GFICLEE/distance_method_5_fold/kegg/kegg_tpr_fpr_precision_hamming.txt',
                    'Hamming')
 data3 <- fit_data(data3,"Hamming")
 #
 #
-data4 <- read_data('/home/yangfang/GFICLEE/distance_method/kegg/kegg_tpr_fpr_precision_jaccard.txt',
+data4 <- read_data('/home/yangfang/GFICLEE/distance_method_5_fold/kegg/kegg_tpr_fpr_precision_jaccard.txt',
                   'Jaccard')
 data4 <- fit_data(data4,"Jaccard")
 data5 <- read_data('/home/yangfang/GFICLEE/test_kegg_gficlee_py/kegg_tpr_fpr_precision_rf.txt',
@@ -124,7 +124,7 @@ data7 <- read_data('/home/yangfang/GFICLEE/test_kegg_gficlee_py/kegg_tpr_fpr_pre
 dataAll <- rbind(data1,data2,data3,data4)
 
 # plot auc
-label <- c("CLIME AUC 0.667","GFICLEE AUC 0.691","Hamming AUC 0.585","Jaccard AUC 0.574","Random")
+label <- c("CLIME AUC 0.662","GFICLEE AUC 0.713","Hamming AUC 0.559","Jaccard AUC 0.562","Random")
 plot_roc(dataAll,'KEGG database',label)
 
 # plot specificity sensitivity
@@ -136,12 +136,12 @@ data1 <- read_data('/home/yangfang/GFICLEE/5_fold_validation/test_go_clime/go_tp
 data2 <- read_data('/home/yangfang/GFICLEE/5_fold_validation/test_go_gficlee/go_tpr_fpr_precision_gficlee.txt',
                    'GFICLEE')
 
-data3 <- read_data('/home/yangfang/GFICLEE/distance_method/go/go_tpr_fpr_precision_hamming.txt',
+data3 <- read_data('/home/yangfang/GFICLEE/distance_method_5_fold/go/go_tpr_fpr_precision_hamming.txt',
                    'Hamming')
 data3 <- fit_data(data3,"Hamming")
 #
 #
-data4 <- read_data('/home/yangfang/GFICLEE/distance_method/go/go_tpr_fpr_precision_jaccard.txt',
+data4 <- read_data('/home/yangfang/GFICLEE/distance_method_5_fold/go/go_tpr_fpr_precision_jaccard.txt',
                    'Jaccard')
 data4 <- fit_data(data4,"Jaccard")
 # data5 <- read_data('/home/yangfang/GFICLEE/distance_method/kegg/kegg_tpr_fpr_precision_euclidean.txt',
@@ -151,7 +151,7 @@ data4 <- fit_data(data4,"Jaccard")
 dataAll <- rbind(data1,data2,data3,data4)
 
 # plot auc
-label <- c("CLIME AUC 0.561","GFICLEE AUC 0.596","Hamming AUC 0.528","Jaccard AUC 0.529","Random")
+label <- c("CLIME AUC 0.564","GFICLEE AUC 0.594","Hamming AUC 0.561","Jaccard AUC 0.570","Random")
 plot_roc(dataAll,'GO database',label)
 
 # plot specificity sensitivity
@@ -163,12 +163,12 @@ data1 <- read_data('/home/yangfang/GFICLEE/5_fold_validation/test_corum_clime/co
 data2 <- read_data('/home/yangfang/GFICLEE/5_fold_validation/test_corum_gficlee/kegg_tpr_fpr_precision_gficlee.txt',
                    'GFICLEE')
 
-data3 <- read_data('/home/yangfang/GFICLEE/distance_method/corum/corum_tpr_fpr_precision_hamming.txt',
+data3 <- read_data('/home/yangfang/GFICLEE/distance_method_2_fold/corum_backup/corum_tpr_fpr_precision_hamming.txt',
                    'Hamming')
-data3 <- fit_data(data3,"Hamming")
+# data3 <- fit_data(data3,"Hamming")
 #
 #
-data4 <- read_data('/home/yangfang/GFICLEE/distance_method/corum/corum_tpr_fpr_precision_jaccard.txt',
+data4 <- read_data('/home/yangfang/GFICLEE/distance_method_2_fold/corum_backup/corum_tpr_fpr_precision_jaccard.txt',
                    'Jaccard')
 data4 <- fit_data(data4,"Jaccard")
 # data5 <- read_data('/home/yangfang/GFICLEE/distance_method/kegg/kegg_tpr_fpr_precision_euclidean.txt',
@@ -178,7 +178,7 @@ data4 <- fit_data(data4,"Jaccard")
 dataAll <- rbind(data1,data2,data3,data4)
 
 # plot auc
-label <- c("CLIME AUC 0.532","GFICLEE AUC 0.556","Hamming AUC 0.541","Jaccard AUC 0.537","Random")
+label <- c("CLIME AUC 0.531","GFICLEE AUC 0.550","Hamming AUC 0.584","Jaccard AUC 0.584","Random")
 plot_roc(dataAll,'CORUM database',label)
 
 # plot specificity sensitivity
@@ -191,12 +191,12 @@ data1 <- read_data('/home/yangfang/GFICLEE/5_fold_validation/test_tbr_clime/tbr_
 data2 <- read_data('/home/yangfang/GFICLEE/5_fold_validation/test_tbr_gficlee/tbr_tpr_fpr_precision_gficlee.txt',
                    'GFICLEE')
 
-data3 <- read_data('/home/yangfang/GFICLEE/distance_method/tbr/tbr_tpr_fpr_precision_hamming.txt',
+data3 <- read_data('/home/yangfang/GFICLEE/distance_method_5_fold/tbr/tbr_tpr_fpr_precision_hamming.txt',
                    'Hamming')
 data3 <- fit_data(data3,"Hamming")
 #
 #
-data4 <- read_data('/home/yangfang/GFICLEE/distance_method/tbr/tbr_tpr_fpr_precision_jaccard.txt',
+data4 <- read_data('/home/yangfang/GFICLEE/distance_method_5_fold/tbr/tbr_tpr_fpr_precision_jaccard.txt',
                    'Jaccard')
 data4 <- fit_data(data4,"Jaccard")
 # data5 <- read_data('/home/yangfang/GFICLEE/distance_method/kegg/kegg_tpr_fpr_precision_euclidean.txt',
@@ -206,8 +206,8 @@ data4 <- fit_data(data4,"Jaccard")
 dataAll <- rbind(data1,data2,data3,data4)
 
 # plot auc
-label <- c("CLIME AUC NA","GFICLEE AUC NA")
-plot_roc(dataAll,'CORUM database',label)
+label <- c("CLIME AUC 0.615","GFICLEE AUC 0.641","Hamming AUC 0.568","Jaccard AUC 0.563","Random")
+plot_roc(dataAll,'tbr kegg database',label)
 
 # plot specificity sensitivity
 plot_se_sp(dataAll,'tbr')
@@ -219,12 +219,12 @@ data1 <- read_data('/home/yangfang/GFICLEE/5_fold_validation/test_ath_clime/ath_
 data2 <- read_data('/home/yangfang/GFICLEE/5_fold_validation/test_ath_gficlee/ath_tpr_fpr_precision_gficlee.txt',
                    'GFICLEE')
 
-data3 <- read_data('/home/yangfang/GFICLEE/distance_method/ath/ath_tpr_fpr_precision_hamming.txt',
+data3 <- read_data('/home/yangfang/GFICLEE/distance_method_5_fold/ath/ath_tpr_fpr_precision_hamming.txt',
                    'Hamming')
 data3 <- fit_data(data3,"Hamming")
 #
 #
-data4 <- read_data('/home/yangfang/GFICLEE/distance_method/ath/ath_tpr_fpr_precision_jaccard.txt',
+data4 <- read_data('/home/yangfang/GFICLEE/distance_method_5_fold/ath/ath_tpr_fpr_precision_jaccard.txt',
                    'Jaccard')
 data4 <- fit_data(data4,"Jaccard")
 # data5 <- read_data('/home/yangfang/GFICLEE/distance_method/kegg/kegg_tpr_fpr_precision_euclidean.txt',
@@ -234,8 +234,8 @@ data4 <- fit_data(data4,"Jaccard")
 dataAll <- rbind(data1,data2,data3,data4)
 
 # plot auc
-label <- c("CLIME AUC NA","GFICLEE AUC NA")
-plot_roc(dataAll,'CORUM database',label)
+label <- c("CLIME AUC 0.770","GFICLEE AUC 0.794","Hamming AUC 0.676","Jaccard AUC 0.667","Random")
+plot_roc(dataAll,'ath kegg database',label)
 
 # plot specificity sensitivity
 plot_se_sp(dataAll,'ath')
