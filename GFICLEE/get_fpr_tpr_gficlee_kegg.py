@@ -3,7 +3,7 @@ import pandas as pd
 
 from ROC.get_fpr_tpr import PlotRoc
 
-#First transform gficlee result for calculate tpr and fpr
+# First transform gficlee result for calculate tpr and fpr
 # def trans_gficlee(input_path, out_path):
 #     if not os.path.isdir(out_path):
 #         os.makedirs(out_path)
@@ -23,7 +23,7 @@ from ROC.get_fpr_tpr import PlotRoc
 # trans_gficlee(input_path='/home/yangfang/GFICLEE/test_kegg_gficlee/result/',
 #             out_path='/home/yangfang/GFICLEE/test_kegg_gficlee/result_trans/',)
 
-#Second get fpr and tpr
+# Second get fpr and tpr
 
 
 foo = PlotRoc('/home/yangfang/GFICLEE/test_kegg_gficlee/input/',
@@ -32,16 +32,15 @@ foo = PlotRoc('/home/yangfang/GFICLEE/test_kegg_gficlee/input/',
               '/home/yangfang/GFICLEE/test_kegg_gficlee/result/')
 # threshold
 
-thr = list(reversed([i/2  for i in range(0, 35)]))
-thr2 = [-x / 2 for x in list(range(0, 30,1))]
+thr = list(reversed([i / 2 for i in range(0, 35)]))
+thr2 = [-x / 2 for x in list(range(0, 30, 1))]
 thr.extend(thr2)
-
-all_tpr_fpr_precision, all_r = foo.start_roc(8, thr)
+# thr = list(reversed([i for i in range(0, 17)]))
+# thr2 = [-x for x in list(range(0, 15, 1))]
+# thr.extend(thr2)
+all_tpr_fpr_precision, all_r = foo.start_roc(6, thr)
 
 foo.write_tpr_fpr(all_tpr_fpr_precision,
                   '/home/yangfang/GFICLEE/test_kegg_gficlee/kegg_tpr_fpr_precision_gficlee.txt')
 foo.write_all(all_r,
               '/home/yangfang/GFICLEE/test_kegg_gficlee/kegg_tp_fp_tn_fn_gficlee.txt')
-
-
-
