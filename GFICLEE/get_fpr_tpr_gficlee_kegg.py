@@ -44,3 +44,7 @@ foo.write_tpr_fpr(all_tpr_fpr_precision,
                   '/home/yangfang/GFICLEE/test_kegg_gficlee/kegg_tpr_fpr_precision_gficlee.txt')
 foo.write_all(all_r,
               '/home/yangfang/GFICLEE/test_kegg_gficlee/kegg_tp_fp_tn_fn_gficlee.txt')
+
+x = [1,2,3]
+for ling in x:
+    print(ling)

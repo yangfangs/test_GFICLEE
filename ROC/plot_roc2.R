@@ -66,7 +66,7 @@ plot_se_sp <- function(allData, title) {
     labs(x = "Specificity", y = "Sensitivity", title = title)
 
   # scale x
-  g <- g + scale_x_continuous(limits = c(0.9, 1))
+  g <- g + scale_x_continuous(limits = c(0.965, 1))
   # sclale y
   g <- g + scale_y_continuous(limits = c(0, 0.5))
 
@@ -105,7 +105,7 @@ data1 <- read_data('/home/yangfang/GFICLEE/test_kegg_clime_5_fold_backup/kegg_tp
                    'CLIME')
 
 data2 <- read_data('/home/yangfang/GFICLEE/test_kegg_gficlee_5_fold_backup/kegg_tpr_fpr_precision_gficlee.txt',
-                   'PhyML')
+                   'GFICLEE')
 data_MEGA_NJ <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_MEGA_NJ/kegg_tpr_fpr_precision_gficlee.txt",
                           "MEGA_NJ")
 data_MEGA_ML <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_MEGA_ML/kegg_tpr_fpr_precision_gficlee.txt",
@@ -116,12 +116,42 @@ data_iqtree <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_iqtree/kegg_t
                           "IQ-TREE")
 data_fasttree <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_fasttree/kegg_tpr_fpr_precision_gficlee.txt",
                           "FastTree")
-data_e2 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_matrixe2/kegg_tpr_fpr_precision_gficlee.txt",
-                          "FastTree")
 data_random <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_random/kegg_tpr_fpr_precision_gficlee.txt",
                            "RandomTree")
 data_random <- fit_data(data_random, "RandomTree")
+animals30 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_animals30/kegg_tpr_fpr_precision_gficlee.txt",
+                         "Subtree (80%)")
+animals22 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_animals22/kegg_tpr_fpr_precision_gficlee.txt",
+                       "Subtree (60%)")
+animals15 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_animals15/kegg_tpr_fpr_precision_gficlee.txt",
+                       "Subtree (40%)")
+animals7 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_animals7/kegg_tpr_fpr_precision_gficlee.txt",
+                       "Subtree (20%)")
+animals38 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_animals38/kegg_tpr_fpr_precision_gficlee.txt",
+                      "Subtree (38 Animals)")
+plants16 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_plants16/kegg_tpr_fpr_precision_gficlee.txt",
+                       "Subtree (16 Plants)")
+fungi56 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_fungi56/kegg_tpr_fpr_precision_gficlee.txt",
+                      "Subtree (56 Fungi)")
+protists29 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_protists29/kegg_tpr_fpr_precision_gficlee.txt",
+                     "Subtree (29 Protists)")
+matrixe2 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_matrixe2/kegg_tpr_fpr_precision_gficlee.txt",
+                     "Matrix_e2")
+matrixe4 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_matrixe4/kegg_tpr_fpr_precision_gficlee.txt",
+                        "Matrix_e4")
+matrixe5 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_matrixe5/kegg_tpr_fpr_precision_gficlee.txt",
+                      "Matrix_e5")
+protists29 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_protists29/kegg_tpr_fpr_precision_gficlee.txt",
+                        "Subtree (29 Protists)")
+protists29 <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_protists29/kegg_tpr_fpr_precision_gficlee.txt",
+                        "Subtree (29 Protists)")
 
+S0.01_0.001G <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_0.01s_0.001g/kegg_tpr_fpr_precision_gficlee.txt",
+                        "0.01S_0.001G")
+S0.01_0.003G <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_0.01s_0.003g/kegg_tpr_fpr_precision_gficlee.txt",
+                        "0.01S_0.003G")
+S0.01_0.005G <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_0.01s_0.005g/kegg_tpr_fpr_precision_gficlee.txt",
+                        "0.01S_0.005G")
 data3 <- read_data('/home/yangfang/GFICLEE/distance_method_5_fold/kegg/kegg_tpr_fpr_precision_hamming.txt',
                    'Hamming')
 data3 <- fit_data(data3, "Hamming")
@@ -138,22 +168,25 @@ data7 <- read_data('/home/yangfang/GFICLEE/test_kegg_gficlee_py/kegg_tpr_fpr_pre
                    'GFICLEE_svc')
 
 # combine data
-dataAll <- rbind(data2, data_MEGA_NJ, data_MEGA_ML,data_MEGA_MP,data_fasttree,data_iqtree,data_random)
-# dataAll <- rbind(data2, data_e2,data_MEGA_MP)
+# dataAll <- rbind(data2, data_MEGA_NJ, data_MEGA_ML,data_fasttree,data_iqtree,data_random)
+# dataAll <- rbind(data2, animals30,animals22,animals15,animals7,animals38,plants16,fungi56,protists29)
+# dataAll <- rbind(data2,animals38,plants16,fungi56,protists29)
+# dataAll <- rbind(data2,matrixe2,matrixe4,matrixe5)
+dataAll <- rbind(data2,S0.01_0.001G,S0.01_0.003G,S0.01_0.005G)
 
 # plot auc
 # label <- c("CLIME AUC 0.662", "GFICLEE AUC 0.713", "Hamming AUC 0.559", "Jaccard AUC 0.562", "Random")
 # label <- c("CLIME", "MEGA_NJ", "MEGA_ML", "IQ-TREE","FastTree" ,"Random")
-label <- c("CLIME", "IQ-TREE","FastTree" ,"Random")
-plot_roc(dataAll, 'KEGG database', label)
+# label <- c("CLIME", "IQ-TREE","FastTree" ,"Random")
+# plot_roc(dataAll, 'KEGG database', label)
 
 
 # plot specificity sensitivity
 plot_se_sp(dataAll, 'KEGG database')
 
-setwd("/home/yangfang/GFICLEE/Revision/tree/")
+setwd("/home/yangfang/GFICLEE/Revision/PhyPro/")
 
-pdf(paste0("different_software", "_AUC.pdf"), height = 8.08, width = 10.43)
+pdf(paste0("different_differente_each", "_AUC.pdf"), height = 8.08, width = 10.43)
 print(plot_se_sp(dataAll, 'KEGG database'))
 dev.off()
 # GO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

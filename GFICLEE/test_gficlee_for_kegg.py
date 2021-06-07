@@ -2,9 +2,10 @@ import time
 
 from GFICLEE.gficlee_predict import GficleePredict
 
-foo = GficleePredict(profile_path='/home/yangfang/GFICLEE/test_kegg_gficlee/hsa.matrix138.e3.q00.p20.txt',
-                     tree_path='/home/yangfang/GFICLEE/test_kegg_gficlee/test2_fix.fas_iqtree_rooted.nwk',
-                     result_path='/home/yangfang/GFICLEE/test_kegg_gficlee/result/')
+foo = GficleePredict(
+    profile_path='/home/yangfang/GFICLEE/test_kegg_gficlee/Animals0_Plants0_Fungi0_Protists29_matrix.txt',
+    tree_path='/home/yangfang/GFICLEE/test_kegg_gficlee/Animals0_Plants0_Fungi0_Protists29.nwk',
+    result_path='/home/yangfang/GFICLEE/test_kegg_gficlee/result/')
 # 5-fold cross validation
 foo.leave_half('/home/yangfang/GFICLEE/test_kegg_gficlee/input/',
                '/home/yangfang/GFICLEE/test_kegg_gficlee/output/',
