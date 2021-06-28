@@ -152,6 +152,11 @@ S0.01_0.003G <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_0.01s_0.003g
                         "0.01S_0.003G")
 S0.01_0.005G <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_0.01s_0.005g/kegg_tpr_fpr_precision_gficlee.txt",
                         "0.01S_0.005G")
+S0.03_0.001G <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_0.03s_0.001g/kegg_tpr_fpr_precision_gficlee.txt",
+                          "0.03S_0.001G")
+S0.05_0.005G <- read_data("/home/yangfang/GFICLEE/test_kegg_gficlee_0.05s_0.005g/kegg_tpr_fpr_precision_gficlee.txt",
+                          "0.05S_0.005G")
+
 data3 <- read_data('/home/yangfang/GFICLEE/distance_method_5_fold/kegg/kegg_tpr_fpr_precision_hamming.txt',
                    'Hamming')
 data3 <- fit_data(data3, "Hamming")
@@ -172,7 +177,7 @@ data7 <- read_data('/home/yangfang/GFICLEE/test_kegg_gficlee_py/kegg_tpr_fpr_pre
 # dataAll <- rbind(data2, animals30,animals22,animals15,animals7,animals38,plants16,fungi56,protists29)
 # dataAll <- rbind(data2,animals38,plants16,fungi56,protists29)
 # dataAll <- rbind(data2,matrixe2,matrixe4,matrixe5)
-dataAll <- rbind(data2,S0.01_0.001G,S0.01_0.003G,S0.01_0.005G)
+dataAll <- rbind(data2,S0.01_0.001G,S0.01_0.003G,S0.01_0.005G,S0.03_0.001G,S0.05_0.005G)
 
 # plot auc
 # label <- c("CLIME AUC 0.662", "GFICLEE AUC 0.713", "Hamming AUC 0.559", "Jaccard AUC 0.562", "Random")
